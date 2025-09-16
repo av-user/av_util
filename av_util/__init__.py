@@ -4,3 +4,5 @@ from .curs import menu
 from .curs import console
 from .curs import input_box
 from .curs import message_box
+from .curs import file_open_dialog
+from .curs import progress

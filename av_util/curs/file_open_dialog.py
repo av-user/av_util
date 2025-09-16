@@ -1,5 +1,6 @@
 import curses
 import os
+import fnmatch
 from pathlib import Path
 
 from .console_window import console_window as console
@@ -10,8 +11,8 @@ class key_def:
     QUIT = ord('q')
 
 class file_open_dialog(object):
-    def __init__(self):
-        pass
+    def __init__(self, filetypes: list = [("All files", "*.*")]):
+        self._filetypes = filetypes
     def show (self, stdscr)->Path:
         # print(type(console))
         con = console (stdscr, 22, 80, 5, 80, 'debug console')
@@ -55,8 +56,11 @@ class file_open_dialog(object):
                     folders.append(item)
                     count_folders += 1
                 elif os.path.isfile(full_path):
-                    files.append(item)
-                    count_files += 1
+                    filename = os.path.basename(full_path)
+                    patterns = [pattern for _, pattern in self._filetypes]
+                    if any(fnmatch.fnmatch(filename, pattern) for pattern in patterns):
+                        files.append(item)
+                        count_files += 1
             if path.resolve().anchor == str(path.resolve()):
                 items = [('', True),]
             else:
