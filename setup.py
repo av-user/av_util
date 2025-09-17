@@ -10,5 +10,5 @@ setup (
         # "pandas>=1.5,<2.0"
     ],
     author="Anatolij Vasylchenko",
-    description="A developer-friendly package that abstracts the complexity of xxx, enabling faster integration and cleaner code.",
+    description="A developer-friendly package that abstracts the complexity of curses package.",
 )
