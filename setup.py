@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup (
-    name="my_package",
+    name="av_util",
     version="0.1",
     packages=find_packages(),
     install_requires=[
@@ -10,5 +10,5 @@ setup (
         # "pandas>=1.5,<2.0"
     ],
     author="Anatolij Vasylchenko",
-    description="A package that ...",
+    description="A developer-friendly package that abstracts the complexity of xxx, enabling faster integration and cleaner code.",
 )
